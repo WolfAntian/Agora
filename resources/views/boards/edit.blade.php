@@ -22,8 +22,11 @@
                 <textarea name="description" class="form-control">{{$board->description}}</textarea>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" style="float: left; margin-right:10px">
                 <button type="submit" name="update" class="btn btn-primary">Update Board</button>
+            </div>
+            <div class="form-group" style="float: left">
+                <button type="submit" name="delete" class="btn btn-danger">Delete Board</button>
             </div>
             {{ csrf_field() }}
         </form>
