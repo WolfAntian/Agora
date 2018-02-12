@@ -29,7 +29,7 @@ class BoardsController extends Controller
 
         if (Auth::check() && Auth::user()->id == $board->user_id)
         {
-            return view('boards/edit', compact('task'));
+            return view('boards/edit', compact('board'));
         }
         else {
             return redirect('/');
