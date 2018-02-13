@@ -12,8 +12,9 @@
         </div>
 
         @foreach ($thread->comment as $comment)
-            <div id="{{$comment->id}}">
-                {{$comment->post}}
+            <div class="m-b-md" id="{{$comment->id}}">
+                <h3>{{$comment->post}}</h3>
+                <small> - {{$comment->user->name}}</small>
             </div>
         @endforeach
 

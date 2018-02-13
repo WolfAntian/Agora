@@ -6,7 +6,7 @@
     <div class="container">
         <h2>Edit Thread - {{$thread->title}}</h2>
 
-        <form method="POST" action="/b/{{$thread->board_id}}/t_edit/{{$thread->id}}">
+        <form method="POST" action="/b/{{$thread->board_path}}/t_edit/{{$thread->id}}">
 
             <h3>Title</h3>
             <div class="form-group">

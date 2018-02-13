@@ -20,7 +20,6 @@
                 @endif
                     <div class="col-md-4">
                         <h3><a href="/b/{{$board->path}}/t/{{$thread->id}}">{{ucwords(trans($thread->title))}}</a></h3>
-                        <p>{{$thread->post}}</p>
                     </div>
 
             @endforeach

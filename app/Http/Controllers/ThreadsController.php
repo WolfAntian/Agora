@@ -42,14 +42,14 @@ class ThreadsController extends Controller
     {
         if(isset($_POST['delete'])) {
             $thread->delete();
-            return redirect('/b/' . $thread->board_id);
+            return redirect('/b/' . $thread->board_path);
         }
         else
         {
             $thread->title = $request->title;
             $thread->post = $request->post;
             $thread->save();
-            return redirect('/b/' . $thread->board_id . "/t/" . $thread->id);
+            return redirect('/b/' . $thread->board_path . "/t/" . $thread->id);
         }
     }
 
