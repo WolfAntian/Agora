@@ -4,6 +4,11 @@
 @section('content')
 
     <div class="container">
+        <small>
+            <a href="/b/{{$board->path}}">
+                 <i class="fi-arrow-left"></i> {{$board->name}}
+            </a>
+        </small>
         <div class="content">
             <div class="title m-b-md">
                 {{ucwords(trans($thread->title))}}

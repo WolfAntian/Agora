@@ -3,6 +3,7 @@
 namespace agora\Http\Controllers\Auth;
 
 use agora\User;
+use agora\Role;
 use agora\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
