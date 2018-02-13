@@ -23,8 +23,7 @@ class ThreadsController extends Controller
         $thread->user_id = Auth::id();
         $thread->board_id = $board->path;
         $thread->save();
-        //return redirect('/b/' . $board->path . "/t/" . $thread->id);
-        return redirect('/b/' . $board->path);
+        return redirect('/b/' . $board->path . "/t/" . $thread->id);
     }
 
     public function edit(Board $board, Thread $thread)
@@ -35,8 +34,7 @@ class ThreadsController extends Controller
             return view('threads/edit', compact('thread'));
         }
         else {
-            //return redirect('/b/' . $board->path . "/t/" . $thread->id);
-            return redirect('/b/' . $board->path);
+            return redirect('/b/' . $board->path . "/t/" . $thread->id);
         }
     }
 
@@ -44,15 +42,14 @@ class ThreadsController extends Controller
     {
         if(isset($_POST['delete'])) {
             $thread->delete();
-            return redirect('/');
+            return redirect('/b/' . $thread->board_id);
         }
         else
         {
             $thread->title = $request->title;
             $thread->post = $request->post;
             $thread->save();
-            //return redirect('/b/' . $thread->board_id . "/t/" . $thread->id);
-            return redirect('/b/' . $thread->board_id);
+            return redirect('/b/' . $thread->board_id . "/t/" . $thread->id);
         }
     }
 
