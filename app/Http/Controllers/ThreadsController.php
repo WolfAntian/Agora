@@ -21,7 +21,7 @@ class ThreadsController extends Controller
         $thread->title = $request->title;
         $thread->post = $request->post;
         $thread->user_id = Auth::id();
-        $thread->board_id = $board->path;
+        $thread->board_path = $board->path;
         $thread->save();
         return redirect('/b/' . $board->path . "/t/" . $thread->id);
     }

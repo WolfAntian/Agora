@@ -18,7 +18,7 @@ class CreateThreadsTable extends Migration
             $table->string('title');
             $table->string('post');
             $table->integer('user_id')->unsigned()->index();
-            $table->string('board_id')->references('path')->on('boards');
+            $table->string('board_path')->references('path')->on('boards');
             $table->timestamps();
         });
     }
