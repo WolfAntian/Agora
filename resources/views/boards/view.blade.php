@@ -1,9 +1,18 @@
 @extends('layouts.app')
 
-//this will add laravel’s default navbar to your page
-
 @section('content')
+    <div class="container">
+        <div class="content">
+            <div class="title m-b-md">
+                {{$board->name}}
+            </div>
+            <div class="center-block">
+                {{$board->description}}
+            </div>
+        </div>
 
-    //here goes your body content
+        <div class="row">
 
+        </div>
+    </div>
 @endsection

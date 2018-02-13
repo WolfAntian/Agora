@@ -5,7 +5,7 @@
     <div class="container">
         <h1>Edit the Board</h1>
 
-        <form method="POST" action="/b_edit/{{ $board->id }}">
+        <form method="POST" action="/b_edit/{{ $board->path }}">
 
             <h3>Name</h3>
             <div class="form-group">

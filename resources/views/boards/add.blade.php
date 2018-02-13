@@ -30,7 +30,6 @@
             {{ csrf_field() }}
         </form>
 
-
     </div>
 
 @endsection

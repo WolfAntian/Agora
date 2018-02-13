@@ -12,6 +12,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/my.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+
 </head>
 <body>
     <div id="app">
@@ -66,5 +69,14 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.12/marked.min.js"></script>
+    <script>
+        var simplemde = new SimpleMDE({ element: document.getElementById("mde") });
+
+        var markdownrenderer = document.getElementById('mdr')
+        markdownrenderer.innerHTML =
+            marked(markdownrenderer.innerText);
+    </script>
 </body>
 </html>

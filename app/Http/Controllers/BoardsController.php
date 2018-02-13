@@ -21,7 +21,7 @@ class BoardsController extends Controller
         $board->description = $request->description;
         $board->user_id = Auth::id();
         $board->save();
-        return redirect("/");
+        return redirect('/b/' . $board->path);
     }
 
     public function edit(Board $board)
@@ -32,7 +32,7 @@ class BoardsController extends Controller
             return view('boards/edit', compact('board'));
         }
         else {
-            return redirect('/');
+            return redirect('/b/' . $board->path);
         }
     }
 
@@ -48,13 +48,13 @@ class BoardsController extends Controller
             $board->path = $request->path;
             $board->description = $request->description;
             $board->save();
-            return redirect('/');
+            return redirect('/b/' . $board->path);
         }
     }
 
-    public function view()
+    public function view(Board $board)
     {
-        return view('boards/view');
+        return view('boards/view',compact('board'));
     }
 
 }
