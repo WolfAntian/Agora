@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use agora\Thread;
 use agora\Board;
+use agora\User;
 use Log;
 
 class ThreadsController extends Controller
@@ -28,29 +29,34 @@ class ThreadsController extends Controller
 
     public function edit(Board $board, Thread $thread)
     {
-
-        if (Auth::check() && Auth::user()->id == $thread->user_id)
-        {
-            return view('threads/edit', compact('thread'));
+        if(Auth::check()) {
+            $user = User::find(Auth::user()->id);
+            if (Auth::user()->id == $thread->user_id || $user->hasRole('mod')) {
+                return view('threads/edit', compact('thread'));
+            }
         }
-        else {
             return redirect('/b/' . $board->path . "/t/" . $thread->id);
-        }
     }
 
     public function update(Request $request, Board $board, Thread $thread)
     {
-        if(isset($_POST['delete'])) {
-            $thread->delete();
-            return redirect('/b/' . $thread->board_path);
+        if(Auth::check()) {
+            $user = User::find(Auth::user()->id);
+            if (Auth::user()->id == $thread->user_id || $user->hasRole('mod')) {
+                if(isset($_POST['delete'])) {
+                    $thread->delete();
+                    return redirect('/b/' . $thread->board_path);
+                }
+                else
+                {
+                    $thread->title = $request->title;
+                    $thread->post = $request->post;
+                    $thread->save();
+                }
+            }
         }
-        else
-        {
-            $thread->title = $request->title;
-            $thread->post = $request->post;
-            $thread->save();
-            return redirect('/b/' . $thread->board_path . "/t/" . $thread->id);
-        }
+        return redirect('/b/' . $thread->board_path . "/t/" . $thread->id);
+
     }
 
     public function view(Board $board, Thread $thread)

@@ -16,16 +16,16 @@
                 <h3>{{$comment->post}}</h3>
                 <small>
                     - {{$comment->user->name}}
-                    @if(Auth::user()->hasRole('admin'))
+                    @if($comment->user->hasRole('admin'))
                         <i class="fi-crown" style="color: gold"></i>
-                    @elseif(Auth::user()->hasRole('mod'))
+                    @elseif($comment->user->hasRole('mod'))
                         <i class="fi-crown" style="color: silver"></i>
                     @endif
                 </small>
             </div>
         @endforeach
 
-
+        @if(Auth::check())
         <form method="POST" action="/b/{{$board->path}}/t/{{$thread->id}}/c/create">
 
             <h3>Post</h3>
@@ -38,6 +38,7 @@
             </div>
             {{ csrf_field() }}
         </form>
+        @endif
     </div>
 
 @endsection

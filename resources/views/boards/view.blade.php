@@ -20,6 +20,14 @@
                 @endif
                     <div class="col-md-4">
                         <h3><a href="/b/{{$board->path}}/t/{{$thread->id}}">{{ucwords(trans($thread->title))}}</a></h3>
+                        <small>
+                            - {{$board->user->name}}
+                            @if($board->user->hasRole('admin'))
+                                <i class="fi-crown" style="color: gold"></i>
+                            @elseif($board->user->hasRole('mod'))
+                                <i class="fi-crown" style="color: silver"></i>
+                            @endif
+                        </small>
                     </div>
 
             @endforeach

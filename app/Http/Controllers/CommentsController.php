@@ -14,11 +14,14 @@ class CommentsController extends Controller
 
     public function create(Request $request, Board $board, Thread $thread)
     {
-        $comment = new Comment();
-        $comment->post = $request->post;
-        $comment->user_id = Auth::id();
-        $comment->thread_id = $thread->id;
-        $comment->save();
-        return redirect('/b/' . $board->path . "/t/" . $thread->id . '#' . $comment->id);
+        if(Auth::check()){
+            $comment = new Comment();
+            $comment->post = $request->post;
+            $comment->user_id = Auth::id();
+            $comment->thread_id = $thread->id;
+            $comment->save();
+            return redirect('/b/' . $board->path . "/t/" . $thread->id . '#' . $comment->id);
+        }
+        return redirect('/b/' . $board->path . "/t/" . $thread->id);
     }
 }

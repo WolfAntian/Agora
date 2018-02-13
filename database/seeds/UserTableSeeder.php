@@ -25,7 +25,7 @@ class UserTableSeeder extends Seeder
 
         $mod = new User();
         $mod->name = 'Anton';
-        $mod->email = "a.wolfarth@hotmail.com’";
+        $mod->email = "a.wolfarth@hotmail.com";
         $mod->password = bcrypt('secret');
         $mod->save();
         $mod->roles()->attach($role_mod);
