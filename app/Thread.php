@@ -8,7 +8,7 @@ class Thread extends Model
 {
     public function board()
     {
-        return $this->belongsTo(Board::class);
+        return $this->belongsTo(Board::class, 'user_id');
     }
 
     public function user()
