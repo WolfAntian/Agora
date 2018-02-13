@@ -81,6 +81,13 @@
                 <div class="title m-b-md">
                     Agora
                 </div>
+                <div class="links">
+                    <a href="/b/a">Anime</a>
+                    <a href="/b/game">Video Games</a>
+                    <a href="/b/rpg">TTRPG</a>
+                    <a href="/b/meta">Meta</a>
+                    <a href="https://github.com/WolfAntian/Agora">GitHub</a>
+                </div>
             </div>
         </div>
     </body>

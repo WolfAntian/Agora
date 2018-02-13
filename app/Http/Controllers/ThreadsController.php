@@ -55,6 +55,6 @@ class ThreadsController extends Controller
 
     public function view(Board $board, Thread $thread)
     {
-        return view('threads/view',compact('thread'));
+        return view('threads/view',compact('board','thread'));
     }
 }

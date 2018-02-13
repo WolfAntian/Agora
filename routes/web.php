@@ -33,3 +33,6 @@ Route::get('/b/{board}/t/{thread}','ThreadsController@view');
 
 Route::get('/b/{board}/t_edit/{thread}','ThreadsController@edit');
 Route::post('/b/{board}/t_edit/{thread}','ThreadsController@update');
+
+//comment
+Route::post('/b/{board}/t/{thread}/c/create','CommentsController@create');
