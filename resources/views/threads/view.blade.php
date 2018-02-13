@@ -14,7 +14,14 @@
         @foreach ($thread->comment as $comment)
             <div class="m-b-md" id="{{$comment->id}}">
                 <h3>{{$comment->post}}</h3>
-                <small> - {{$comment->user->name}}</small>
+                <small>
+                    - {{$comment->user->name}}
+                    @if(Auth::user()->hasRole('admin'))
+                        <i class="fi-crown" style="color: gold"></i>
+                    @elseif(Auth::user()->hasRole('mod'))
+                        <i class="fi-crown" style="color: silver"></i>
+                    @endif
+                </small>
             </div>
         @endforeach
 
