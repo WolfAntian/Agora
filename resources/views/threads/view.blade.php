@@ -13,7 +13,25 @@
             <div class="title m-b-md">
                 {{ucwords(trans($thread->title))}}
             </div>
-            <p>{{$thread->post}}</p>
+        </div>
+
+        <div class="m-b-md" id="t_{{$thread->id}}">
+            <div class="card card-default">
+                <div class="card-body">
+                    <img class="small-img" src="{{$thread->img}}">
+                    <div class="mdr">{!! nl2br(e($thread->post)) !!}</div>
+                </div>
+                <div class="card-footer">
+                    <small>
+                        - {{$thread->user->name}}
+                        @if($thread->user->hasRole('admin'))
+                            <i class="fi-crown" style="color: gold"></i>
+                        @elseif($thread->user->hasRole('mod'))
+                            <i class="fi-crown" style="color: silver"></i>
+                        @endif
+                    </small>
+                </div>
+            </div>
         </div>
 
         @foreach ($thread->comment as $comment)

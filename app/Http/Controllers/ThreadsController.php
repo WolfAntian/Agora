@@ -21,6 +21,7 @@ class ThreadsController extends Controller
         $thread = new Thread();
         $thread->title = $request->title;
         $thread->post = $request->post;
+        $thread->img = $request->img;
         $thread->user_id = Auth::id();
         $thread->board_path = $board->path;
         $thread->save();
@@ -49,6 +50,7 @@ class ThreadsController extends Controller
                 }
                 else
                 {
+                    $thread->img = $request->img;
                     $thread->title = $request->title;
                     $thread->post = $request->post;
                     $thread->save();

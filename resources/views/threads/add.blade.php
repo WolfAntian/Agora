@@ -18,6 +18,11 @@
                 <textarea name="post" class="form-control"></textarea>
             </div>
 
+            <h3>Image Address (e.g. https://i.imgur.com/ZlMqj25.png)</h3>
+            <div class="form-group">
+                <textarea name="img" class="form-control"></textarea>
+            </div>
+
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Create Thread</button>
             </div>

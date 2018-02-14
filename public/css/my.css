@@ -7,7 +7,11 @@ html, body {
     margin: 0;
 }
 
-img {
+.mdr>p>img {
+    max-height: 200px;
+}
+
+.small-img {
     max-height: 200px;
 }
 
@@ -51,4 +55,10 @@ img {
 
 .m-b-md {
     margin-bottom: 30px;
+}
+
+#fixedbutton {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
 }
