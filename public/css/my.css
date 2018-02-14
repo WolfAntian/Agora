@@ -7,6 +7,10 @@ html, body {
     margin: 0;
 }
 
+img {
+    max-height: 200px;
+}
+
 .full-height {
     height: 100vh;
 }

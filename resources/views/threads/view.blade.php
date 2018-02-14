@@ -18,15 +18,23 @@
 
         @foreach ($thread->comment as $comment)
             <div class="m-b-md" id="{{$comment->id}}">
-                <h3>{{$comment->post}}</h3>
-                <small>
-                    - {{$comment->user->name}}
-                    @if($comment->user->hasRole('admin'))
-                        <i class="fi-crown" style="color: gold"></i>
-                    @elseif($comment->user->hasRole('mod'))
-                        <i class="fi-crown" style="color: silver"></i>
-                    @endif
-                </small>
+                <div class="card card-default">
+                    <div class="card-body">
+                        <div class="mdr">{!! nl2br(e($comment->post)) !!}</div>
+                    </div>
+                    <div class="card-footer">
+                        <small>
+                            - {{$comment->user->name}}
+                            @if($comment->user->hasRole('admin'))
+                                <i class="fi-crown" style="color: gold"></i>
+                            @elseif($comment->user->hasRole('mod'))
+                                <i class="fi-crown" style="color: silver"></i>
+                            @endif
+                        </small>
+                    </div>
+                </div>
+
+
             </div>
         @endforeach
 
@@ -35,7 +43,7 @@
 
             <h3>Post</h3>
             <div class="form-group">
-                <textarea name="post" class="form-control"></textarea>
+                <textarea name="post" class="form-control" id="mde"></textarea>
             </div>
 
             <div class="form-group">

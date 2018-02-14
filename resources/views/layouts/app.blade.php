@@ -75,9 +75,13 @@
     <script>
         var simplemde = new SimpleMDE({ element: document.getElementById("mde") });
 
-        var markdownrenderer = document.getElementById('mdr')
-        markdownrenderer.innerHTML =
-            marked(markdownrenderer.innerText);
+        var markdownrenderers = document.getElementsByClassName('mdr');
+        console.log(markdownrenderers.length);
+        for (i = 0; i < markdownrenderers.length; i++) {
+            markdownrenderers[i].innerHTML =
+                marked(markdownrenderers[i].innerText);
+        };
+
     </script>
 </body>
 </html>
