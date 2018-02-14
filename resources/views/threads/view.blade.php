@@ -29,6 +29,7 @@
                         @elseif($thread->user->hasRole('mod'))
                             <i class="fi-crown" style="color: silver"></i>
                         @endif
+                        <span class="fi-pencil"></span>
                     </small>
                 </div>
             </div>
@@ -47,6 +48,9 @@
                                 <i class="fi-crown" style="color: gold"></i>
                             @elseif($comment->user->hasRole('mod'))
                                 <i class="fi-crown" style="color: silver"></i>
+                            @endif
+                            @if($thread->user == $comment->user)
+                                <span class="fi-pencil"></span>
                             @endif
                         </small>
                     </div>
