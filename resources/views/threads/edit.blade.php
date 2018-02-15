@@ -13,11 +13,6 @@
                 <textarea name="title" class="form-control">{{$thread->title}}</textarea>
             </div>
 
-            <h3>Post</h3>
-            <div class="form-group">
-                <textarea name="post" class="form-control">{{$thread->post}}</textarea>
-            </div>
-
             <h3>Image Address (e.g. https://i.imgur.com/ZlMqj25.png)</h3>
             <div class="form-group">
                 <textarea name="img" class="form-control">{{$thread->img}}</textarea>

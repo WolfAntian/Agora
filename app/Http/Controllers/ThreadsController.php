@@ -2,6 +2,7 @@
 
 namespace agora\Http\Controllers;
 
+use agora\Comment;
 use Illuminate\Http\Request;
 use Auth;
 use agora\Thread;
@@ -30,7 +31,6 @@ class ThreadsController extends Controller
 
             $thread = new Thread();
             $thread->title = $request->title;
-            $thread->post = $request->post;
             $thread->img = $request->img;
             if ($thread->img == null) {
                 $thread->img = "https://i.imgur.com/ZlMqj25.png";
@@ -38,6 +38,13 @@ class ThreadsController extends Controller
             $thread->user_id = Auth::id();
             $thread->board_path = $board->path;
             $thread->save();
+
+            $comment = new Comment();
+            $comment->post = $request->post;
+            $comment->user_id = Auth::id();
+            $comment->thread_id = $thread->id;
+            $comment->save();
+
             return redirect('/b/' . $board->path . "/t/" . $thread->id);
         }
         return redirect('/b/' . $board->path);
@@ -67,14 +74,12 @@ class ThreadsController extends Controller
                 {
                     $validatedData = $request->validate([
                         'title' => 'required|max:255',
-                        'post' => 'required',
                     ]);
                     $thread->img = $request->img;
                     if ($thread->img == null) {
                         $thread->img = "https://i.imgur.com/ZlMqj25.png";
                     }
                     $thread->title = $request->title;
-                    $thread->post = $request->post;
                     $thread->save();
                 }
             }
