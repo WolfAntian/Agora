@@ -36,3 +36,10 @@ Route::post('/b/{board}/t_edit/{thread}','ThreadsController@update');
 
 //comment
 Route::post('/b/{board}/t/{thread}/c/create','CommentsController@create');
+
+//users
+Route::get('/u/{user}','UsersController@view');
+
+Route::get('/u_edit/{user}','UsersController@edit');
+Route::post('/u_edit/{user}','UsersController@update');
+
