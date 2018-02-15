@@ -5,6 +5,11 @@
         <div class="content">
             <div class="title m-b-md">
                 {{$board->name}}
+                @auth
+                    @if($user->hasRole('mod'))
+                        <a href="/b_edit/{{$board->path}}"><i style="color:lightslategrey" class="fa fa-edit"></i></a>
+                    @endif
+                @endauth
             </div>
             <div class="m-b-md">
                 {{$board->description}}
@@ -26,7 +31,7 @@
                                     <img style="width: inherit" src="{{$thread->img}}">
                                 </div>
                                 <div class="card-body">
-                                    <h3><a href="/b/{{$board->path}}/t/{{$thread->id}}">{{ucwords(trans(str_limit($thread->title, $limit = 50, $end = '...')))}}</a></h3>
+                                    <h3><a href="/b/{{$board->path}}/t/{{$thread->id}}">{{ucwords(trans(str_limit($thread->title, $limit = 40, $end = '...')))}}</a></h3>
                                 </div>
                                 <div class="card-footer">
                                     <small>

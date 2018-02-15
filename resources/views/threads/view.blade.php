@@ -12,6 +12,11 @@
         <div class="content">
             <div class="title m-b-md">
                 {{ucwords(trans($thread->title))}}
+                @auth
+                    @if($user->hasRole('mod') || $user == $thread->user)
+                        <a href="/b/{{$board->path}}/t_edit/{{$thread->id}}"><i style="color:lightslategrey" class="fa fa-edit"></i></a>
+                    @endif
+                @endauth
             </div>
         </div>
 

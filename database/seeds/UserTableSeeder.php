@@ -17,17 +17,19 @@ class UserTableSeeder extends Seeder
         $role_mod  = Role::where('name', 'mod')->first();
 
         $admin = new User();
-        $admin->name = 'WolfAntian';
-        $admin->email = "ghibli-7@hotmail.com";
+        $admin->name = 'Admin';
+        $admin->email = "admin@hotmail.com";
         $admin->password = bcrypt('password');
         $admin->save();
         $admin->roles()->attach($role_admin);
 
         $mod = new User();
-        $mod->name = 'Anton';
-        $mod->email = "a.wolfarth@hotmail.com";
+        $mod->name = 'Mod';
+        $mod->email = "mod@hotmail.com";
         $mod->password = bcrypt('secret');
         $mod->save();
         $mod->roles()->attach($role_mod);
+
+        $admin->roles()->attach($role_mod);
     }
 }

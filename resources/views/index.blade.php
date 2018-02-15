@@ -81,13 +81,23 @@
                 <div class="title m-b-md">
                     Agora
                 </div>
-                <div class="links">
-                    <a href="/b/a">Anime</a>
-                    <a href="/b/game">Video Games</a>
-                    <a href="/b/rpg">TTRPG</a>
-                    <a href="/b/meta">Meta</a>
-                    <a href="https://github.com/WolfAntian/Agora">GitHub</a>
-                </div>
+
+                <table>
+                    <tr>
+                        <td><div class="links"><a href="/b/a">Anime</a></div></td>
+                        <td><div class="links"><a href="/b/a">Video Games</a></div></td>
+                        <td><div class="links"><a href="/b/a">TTRPG</a></div></td>
+                        <td><div class="links"><a href="/b/a">Music</a></div></td>
+                        <td><div class="links"><a href="/b/a">Kpop</a></div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="links"><a href="/b/a">Random</a></div></td>
+                        <td><div class="links"><a href="/b/a">Cute</a></div></td>
+                        <td><div class="links"><a href="/b/a">Politics</a></div></td>
+                        <td><div class="links"><a href="/b/a">Meta</a></div></td>
+                        <td><div class="links"><a href="/b/a">GitHub</a></div></td>
+                    </tr>
+                </table>
             </div>
         </div>
     </body>

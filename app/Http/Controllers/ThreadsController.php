@@ -63,6 +63,9 @@ class ThreadsController extends Controller
 
     public function view(Board $board, Thread $thread)
     {
-        return view('threads/view',compact('board','thread'));
+        if(Auth::check()) {
+            $user = User::find(Auth::user()->id);
+        }
+        return view('threads/view',compact('board','thread', 'user'));
     }
 }

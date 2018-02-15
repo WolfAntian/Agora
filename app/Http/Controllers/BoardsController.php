@@ -54,7 +54,7 @@ class BoardsController extends Controller
         if(Auth::check()) {
             $user = User::find(Auth::user()->id);
             if ($user->hasRole('mod')) {
-                if(isset($_POST['delete'])) {
+                if(isset($_POST['delete']) && $user->hasRole('admin')) {
                     $board->delete();
                     return redirect('/');
                 }
@@ -73,7 +73,10 @@ class BoardsController extends Controller
 
     public function view(Board $board)
     {
-        return view('boards/view',compact('board'));
+        if(Auth::check()) {
+            $user = User::find(Auth::user()->id);
+        }
+        return view('boards/view',compact('board', 'user'));
     }
 
 }
