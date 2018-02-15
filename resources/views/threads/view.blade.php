@@ -73,6 +73,16 @@
                 <textarea name="post" class="form-control" id="mde"></textarea>
             </div>
 
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>

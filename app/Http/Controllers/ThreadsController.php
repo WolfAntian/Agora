@@ -13,19 +13,34 @@ class ThreadsController extends Controller
 {
     public function add(Board $board)
     {
-        return view('threads/add', compact('board'));
+        if(Auth::check()) {
+            return view('threads/add', compact('board'));
+        }
+        return redirect('/b/' . $board->path);
     }
 
     public function create(Request $request, Board $board)
     {
-        $thread = new Thread();
-        $thread->title = $request->title;
-        $thread->post = $request->post;
-        $thread->img = $request->img;
-        $thread->user_id = Auth::id();
-        $thread->board_path = $board->path;
-        $thread->save();
-        return redirect('/b/' . $board->path . "/t/" . $thread->id);
+        if(Auth::check()) {
+            $validatedData = $request->validate([
+                'title' => 'required|max:255',
+                'post' => 'required',
+            ]);
+
+
+            $thread = new Thread();
+            $thread->title = $request->title;
+            $thread->post = $request->post;
+            $thread->img = $request->img;
+            if ($thread->img == null) {
+                $thread->img = "https://i.imgur.com/ZlMqj25.png";
+            }
+            $thread->user_id = Auth::id();
+            $thread->board_path = $board->path;
+            $thread->save();
+            return redirect('/b/' . $board->path . "/t/" . $thread->id);
+        }
+        return redirect('/b/' . $board->path);
     }
 
     public function edit(Board $board, Thread $thread)
@@ -50,7 +65,14 @@ class ThreadsController extends Controller
                 }
                 else
                 {
+                    $validatedData = $request->validate([
+                        'title' => 'required|max:255',
+                        'post' => 'required',
+                    ]);
                     $thread->img = $request->img;
+                    if ($thread->img == null) {
+                        $thread->img = "https://i.imgur.com/ZlMqj25.png";
+                    }
                     $thread->title = $request->title;
                     $thread->post = $request->post;
                     $thread->save();

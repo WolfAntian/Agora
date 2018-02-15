@@ -56,6 +56,9 @@
             @endforeach
         </div>
     </div>
-
-    <a href="/b/{{$board->path}}/t/create" class="btn btn-default btn-circle" id="fixedbutton"><h1><i style="color: lightslategrey" class="fa fa-plus"></i></h1></a>
+    @auth
+        <a href="/b/{{$board->path}}/t/create" class="btn btn-default btn-circle" id="fixedbutton">
+            <h1><i style="color: lightslategrey" class="fa fa-plus"></i></h1>
+        </a>
+    @endauth
 @endsection

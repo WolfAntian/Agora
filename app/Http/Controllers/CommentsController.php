@@ -15,6 +15,10 @@ class CommentsController extends Controller
     public function create(Request $request, Board $board, Thread $thread)
     {
         if(Auth::check()){
+            $validatedData = $request->validate([
+                'post' => 'required'
+            ]);
+
             $comment = new Comment();
             $comment->post = $request->post;
             $comment->user_id = Auth::id();

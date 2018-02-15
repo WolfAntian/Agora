@@ -23,6 +23,16 @@
                 <textarea name="img" class="form-control">{{$thread->img}}</textarea>
             </div>
 
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <div class="form-group" style="float: left; margin-right:10px">
                 <button type="submit" class="btn btn-primary">Update Thread</button>
             </div>

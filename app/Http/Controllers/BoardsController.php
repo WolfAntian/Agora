@@ -26,6 +26,13 @@ class BoardsController extends Controller
         if(Auth::check()){
             $user = User::find(Auth::user()->id);
             if($user->hasRole('admin')){
+
+                $validatedData = $request->validate([
+                    'name' => 'required|max:40',
+                    'path' => 'required|max:10',
+                    'description' => 'required'
+                ]);
+
                 $board = new Board();
                 $board->name = $request->name;
                 $board->path = $request->path;
@@ -60,6 +67,12 @@ class BoardsController extends Controller
                 }
                 else
                 {
+                    $validatedData = $request->validate([
+                        'name' => 'required|max:40',
+                        'path' => 'required|max:10',
+                        'description' => 'required'
+                    ]);
+
                     $board->name = $request->name;
                     $board->path = $request->path;
                     $board->description = $request->description;
