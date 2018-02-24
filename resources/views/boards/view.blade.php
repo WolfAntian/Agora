@@ -35,10 +35,10 @@
                                 </div>
                                 <div class="card-footer">
                                     <small>
-                                        - {{$board->user->name}}
-                                        @if($board->user->hasRole('admin'))
+                                        - {{$thread->user->name}}
+                                        @if($thread->user->hasRole('admin'))
                                             <i class="fi-crown" style="color: gold"></i>
-                                        @elseif($board->user->hasRole('mod'))
+                                        @elseif($thread->user->hasRole('mod'))
                                             <i class="fi-crown" style="color: silver"></i>
                                         @endif
                                     </small>
