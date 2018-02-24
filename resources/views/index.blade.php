@@ -11,6 +11,7 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <style>
             html, body {
                 background-color: #fff;
@@ -83,24 +84,43 @@
                 <div class="title m-b-md">
                     Agora
                 </div>
+                        <div class="row justify-content-center">
+                            <div class="col-md-2">
+                                <span class="links"><a href="/b/a">Anime</a></span>
+                            </div>
+                            <div class="col-md-2">
+                                <span class="links"><a href="/b/games">Games</a></span>
+                            </div>
+                            <div class="col-md-2">
+                                <span class="links"><a href="/b/ttrpg">TTRPG</a></span>
+                            </div>
+                            <div class="col-md-2">
+                                <span class="links"><a href="/b/music">Music</a></span>
+                            </div>
+                            <div class="col-md-2">
+                                <span class="links"><a href="/b/kpop">KPop</a></span>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-md-2">
+                                <div class="links"><a href="/b/b">Random</a></div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="links"><a href="/b/aww">Cute</a></div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="links"><a href="/b/pol">Politics</a></div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="links"><a href="/b/meta">Meta</a></div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="links"><a href="https://github.com/WolfAntian/Agora">GitHub</a></div>
+                            </div>
+                        </div>
 
-                <table>
-                    <tr>
-                        <td><div class="links"><a href="/b/a">Anime</a></div></td>
-                        <td><div class="links"><a href="/b/a">Video Games</a></div></td>
-                        <td><div class="links"><a href="/b/a">TTRPG</a></div></td>
-                        <td><div class="links"><a href="/b/a">Music</a></div></td>
-                        <td><div class="links"><a href="/b/a">Kpop</a></div></td>
-                    </tr>
-                    <tr>
-                        <td><div class="links"><a href="/b/a">Random</a></div></td>
-                        <td><div class="links"><a href="/b/a">Cute</a></div></td>
-                        <td><div class="links"><a href="/b/a">Politics</a></div></td>
-                        <td><div class="links"><a href="/b/a">Meta</a></div></td>
-                        <td><div class="links"><a href="/b/a">GitHub</a></div></td>
-                    </tr>
-                </table>
             </div>
+
         </div>
     </body>
 </html>
