@@ -20,4 +20,8 @@ class Thread extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function stars(){
+        return $this->hasMany(ThreadStar::class);
+    }
 }

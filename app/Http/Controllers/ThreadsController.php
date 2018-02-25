@@ -3,11 +3,13 @@
 namespace agora\Http\Controllers;
 
 use agora\Comment;
+use agora\ThreadStar;
 use Illuminate\Http\Request;
 use Auth;
 use agora\Thread;
 use agora\Board;
 use agora\User;
+use Illuminate\Http\Response;
 use Log;
 
 class ThreadsController extends Controller
@@ -94,5 +96,24 @@ class ThreadsController extends Controller
             $user = User::find(Auth::user()->id);
         }
         return view('threads/view',compact('board','thread', 'user'));
+    }
+
+    public function star(Board $board, Thread $thread){
+        if(Auth::check()) {
+            $user = User::find(Auth::user()->id);
+
+            $star = ThreadStar::whereRaw('user_id = ' . $user->id . ' and thread_id = ' . $thread->id)->get()->first();
+            if($star == null){
+                $star = new ThreadStar();
+                $star->user_id = $user->id;
+                $star->thread_id = $thread->id;
+                $star->save();
+                return response()->json(['message' => 'Success'],204);
+            }else{
+                $star->delete();
+                return response()->json(['message' => 'Deleted'],204);
+            }
+        }
+        return response()->json(['message' => 'Unauthorized'],401);
     }
 }

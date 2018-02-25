@@ -70,4 +70,11 @@ class User extends Authenticatable
     {
         return null !== $this->roles()->where('name', $role)->first();
     }
+
+    public function threadStars(){
+        return $this->hasMany(ThreadStar::class);
+    }
+    public function commentStars(){
+        return $this->hasMany(CommentStar::class);
+    }
 }

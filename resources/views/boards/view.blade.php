@@ -42,6 +42,12 @@
                                             <i class="fi-crown" style="color: silver"></i>
                                         @endif
                                     </small>
+                                    <form method="POST" action="/b/{{$board->path}}/t/{{$thread->id}}/star">
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary">Star</button>
+                                        </div>
+                                        {{ csrf_field() }}
+                                    </form>
                                 </div>
                             </div>
                         </div>

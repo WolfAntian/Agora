@@ -40,6 +40,14 @@
                             @if($thread->user == $comment->user)
                                 <span class="fi-pencil"></span>
                             @endif
+
+                            <form method="POST" action="/b/{{$board->path}}/t/{{$thread->id}}/c/{{$comment->id}}/star">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Star</button>
+                                </div>
+                                {{ csrf_field() }}
+                            </form>
+
                         </small>
                     </div>
                 </div>

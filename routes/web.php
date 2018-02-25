@@ -34,8 +34,12 @@ Route::get('/b/{board}/t/{thread}','ThreadsController@view');
 Route::get('/b/{board}/t_edit/{thread}','ThreadsController@edit');
 Route::post('/b/{board}/t_edit/{thread}','ThreadsController@update');
 
+Route::post('/b/{board}/t/{thread}/star','ThreadsController@star');
+
 //comment
 Route::post('/b/{board}/t/{thread}/c/create','CommentsController@create');
+
+Route::post('/b/{board}/t/{thread}/c/{comment}/star','CommentsController@star');
 
 //users
 Route::get('/u/{user}','UsersController@view');
