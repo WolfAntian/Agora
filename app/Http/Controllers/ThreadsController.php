@@ -94,6 +94,7 @@ class ThreadsController extends Controller
     {
         if(Auth::check()) {
             $user = User::find(Auth::user()->id);
+
         }
         return view('threads/view',compact('board','thread', 'user'));
     }

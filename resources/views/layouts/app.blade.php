@@ -15,6 +15,7 @@
     <link href="{{ asset('css/my.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
     <link href="{{ asset('css/foundation-icons.css') }}" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
 
 </head>
 <body>

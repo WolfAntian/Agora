@@ -57,6 +57,14 @@ html, body {
     margin-bottom: 30px;
 }
 
+.star-submit {
+    background:none!important;
+    border:none;
+    padding:0!important;
+    cursor:pointer;
+    color: #636b6f;
+}
+
 #fixedbutton {
     position: fixed;
     bottom: 0px;

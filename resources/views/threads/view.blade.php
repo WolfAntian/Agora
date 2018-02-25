@@ -31,23 +31,37 @@
                     </div>
                     <div class="card-footer">
                         <small>
-                            - {{$comment->user->name}}
-                            @if($comment->user->hasRole('admin'))
-                                <i class="fi-crown" style="color: gold"></i>
-                            @elseif($comment->user->hasRole('mod'))
-                                <i class="fi-crown" style="color: silver"></i>
-                            @endif
-                            @if($thread->user == $comment->user)
-                                <span class="fi-pencil"></span>
-                            @endif
+                            <div style="float: left">
+                                <span style="padding-right:1em">
+                                    - {{$comment->user->name}}
+                                    @if($comment->user->hasRole('admin'))
+                                        <i class="fi-crown" style="color: gold"></i>
+                                    @elseif($comment->user->hasRole('mod'))
+                                        <i class="fi-crown" style="color: silver"></i>
+                                    @endif
+                                    @if($thread->user == $comment->user)
+                                        <span class="fi-pencil"></span>
+                                    @endif
+                                </span>
+                                <span>
+                                    &commat;{{ str_pad($comment->id,8,'0',STR_PAD_LEFT) }}
+                                </span>
+                            </div>
 
-                            <form method="POST" action="/b/{{$board->path}}/t/{{$thread->id}}/c/{{$comment->id}}/star">
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Star</button>
-                                </div>
-                                {{ csrf_field() }}
-                            </form>
-
+                            <div style="float: right">
+                                <form method="POST" action="/b/{{$board->path}}/t/{{$thread->id}}/c/{{$comment->id}}/star">
+                                    <div class="form-group">
+                                        <button type="submit" class="star-submit">
+                                            @if($comment->stars()->where('user_id', $user->id)->first() != [])
+                                                <i class="fa fa-star" style="color: gold"></i>
+                                            @else
+                                                <i class="far fa-star" style="color: silver;"></i>
+                                            @endif
+                                        </button>
+                                    </div>
+                                    {{ csrf_field() }}
+                                </form>
+                            </div>
                         </small>
                     </div>
                 </div>
