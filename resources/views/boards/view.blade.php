@@ -44,21 +44,22 @@
                                             @endif
                                         </div>
 
-
-                                        <div style="float: right">
-                                            <form method="POST" action="/b/{{$board->path}}/t/{{$thread->id}}/star">
-                                                <div class="form-group">
-                                                    <button type="submit" class="star-submit">
-                                                        @if($thread->stars()->where('user_id', $user->id)->first() != [])
-                                                            <i class="fa fa-star" style="color: gold"></i>
-                                                        @else
-                                                            <i class="far fa-star" style="color: silver;"></i>
-                                                        @endif
-                                                    </button>
-                                                </div>
-                                                {{ csrf_field() }}
-                                            </form>
-                                        </div>
+                                        @auth
+                                            <div style="float: right">
+                                                <form method="POST" action="/b/{{$board->path}}/t/{{$thread->id}}/star">
+                                                    <div class="form-group">
+                                                        <button type="submit" class="star-submit">
+                                                            @if($thread->stars()->where('user_id', $user->id)->first() != [])
+                                                                <i class="fa fa-star" style="color: gold"></i>
+                                                            @else
+                                                                <i class="far fa-star" style="color: silver;"></i>
+                                                            @endif
+                                                        </button>
+                                                    </div>
+                                                    {{ csrf_field() }}
+                                                </form>
+                                            </div>
+                                        @endauth
                                     </small>
                                 </div>
                             </div>
