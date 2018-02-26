@@ -36,12 +36,27 @@
                                 <div class="card-footer">
                                     <small>
                                         <div style="float: left">
+                                            <span style="padding-right:1em">
                                             - {{$thread->user->name}}
                                             @if($thread->user->hasRole('admin'))
                                                 <i class="fi-crown" style="color: gold"></i>
                                             @elseif($thread->user->hasRole('mod'))
                                                 <i class="fi-crown" style="color: silver"></i>
                                             @endif
+                                            </span>
+                                            <span>
+                                                @if($currentTime->diffInDays($thread->comments->last()->updated_at))
+                                                    {{$currentTime->diffInDays($thread->comments->last()->updated_at)}} Days Ago
+                                                @elseif($currentTime->diffInHours($thread->comments->last()->updated_at))
+                                                    {{$currentTime->diffInHours($thread->comments->last()->updated_at)}} Hours Ago
+                                                @elseif($currentTime->diffInMinutes($thread->comments->last()->updated_at))
+                                                    {{$currentTime->diffInMinutes($thread->comments->last()->updated_at)}} Minutes Ago
+                                                @else
+                                                    {{$currentTime->diffInSeconds($thread->comments->last()->updated_at)}} Seconds Ago
+                                                @endif
+                                            </span>
+
+
                                         </div>
 
                                         @auth

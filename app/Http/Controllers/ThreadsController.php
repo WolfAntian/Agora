@@ -4,6 +4,7 @@ namespace agora\Http\Controllers;
 
 use agora\Comment;
 use agora\ThreadStar;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Auth;
 use agora\Thread;
@@ -96,7 +97,10 @@ class ThreadsController extends Controller
             $user = User::find(Auth::user()->id);
 
         }
-        return view('threads/view',compact('board','thread', 'user'));
+
+        $currentTime = Carbon::now();
+
+        return view('threads/view',compact('board','thread', 'user', 'currentTime'));
     }
 
     public function star(Board $board, Thread $thread){

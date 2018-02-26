@@ -2,6 +2,7 @@
 
 namespace agora\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Auth\Events\Authenticated;
 use Illuminate\Http\Request;
 use Auth;
@@ -89,7 +90,10 @@ class BoardsController extends Controller
         if(Auth::check()) {
             $user = User::find(Auth::user()->id);
         }
-        return view('boards/view',compact('board', 'user'));
+
+        $currentTime = Carbon::now();
+
+        return view('boards/view',compact('board', 'user', 'currentTime'));
     }
 
 }

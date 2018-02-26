@@ -20,7 +20,7 @@
             </div>
         </div>
 
-        @foreach ($thread->comment as $comment)
+        @foreach ($thread->comments as $comment)
             <div class="m-b-md" id="{{$comment->id}}">
                 <div class="card card-default">
                     <div class="card-body">
@@ -43,9 +43,20 @@
                                         <span class="fi-pencil"></span>
                                     @endif
                                 </span>
-                                <span>
+                                <span style="padding-right:1em">
                                     &commat;{{ str_pad($comment->id,8,'0',STR_PAD_LEFT) }}
                                 </span>
+                                <span>
+                                    @if($currentTime->diffInDays($comment->updated_at))
+                                        {{$currentTime->diffInDays($comment->updated_at)}} Days Ago
+                                    @elseif($currentTime->diffInHours($comment->updated_at))
+                                        {{$currentTime->diffInHours($comment->updated_at)}} Hours Ago
+                                    @elseif($currentTime->diffInMinutes($comment->updated_at))
+                                        {{$currentTime->diffInMinutes($comment->updated_at)}} Minutes Ago
+                                    @else
+                                        {{$currentTime->diffInSeconds($comment->updated_at)}} Seconds Ago
+                                    @endif
+                                            </span>
                             </div>
 
                             @auth
